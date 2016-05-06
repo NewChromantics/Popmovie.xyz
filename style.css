@@ -1,0 +1,206 @@
+@font-face {
+	font-family: LemonMilk;
+	src: url("LemonMilk.otf") format("opentype");
+}
+
+/* using first element in the menu as the header, this may backfire later when we want to move the menu */
+
+
+
+
+
+.Menu>ul,
+.Menu .level-1
+{
+	list-style-type: none;
+	margin:0px;
+	padding: 0px;
+}
+
+.Header,
+.Menu #popmovie-link
+{
+	position:	fixed;
+	left:		0;
+	top:		0;
+	height:		20vh;
+	width:		100%;
+	margin:		0px;
+	padding:	0px;
+
+	color:			white;
+	background-color:	#178fc5;
+
+	xxoverflow:	hidden;
+}
+
+#popmovie-link:before {
+	display:inline;
+	height:100%;
+	/* gr: using padding for min-width */
+	padding: 0px 63px 0px 0px;
+	/* code for NBSP as &nbsp; doesnt seem to work in osx chrome*/
+	content: "\00a0";
+	background-image: url(PopMovie_Icon_63x128.png);
+	xxbackground-color: red;
+	background-repeat: no-repeat;
+	background-position: right center;
+	margin-right: 1%;
+
+	/* center again */
+	margin-left: -63px;
+	background-size: auto 90%;
+}
+
+.Header H1,
+.Menu #popmovie-link
+{
+	display:	block;
+	text-align:	center;
+	width:		100%;
+	margin:		auto;
+	font-size:	14vh;
+	padding:	0px;
+	font-family:	LemonMilk;
+	text-decoration:	none;
+}
+
+#popmovie-link a:visited,
+#popmovie-link a:hover
+{
+	color:	inherit;
+}
+
+/* when you click an anchor, this offsets the block we've jumped to so it appears under the header */
+*:target
+{
+	padding-top:		22vh;
+	margin-top:		-22vh;
+}
+
+body
+{
+	background-color:	#fff;
+	font-family:"futura-pt",sans-serif;
+	font-size:		12pt;
+	color:#000;
+	margin-top:	22vh;
+	margin-left:	10%;
+	margin-right:	10%;
+}
+
+.Body
+{
+	line-height:	18pt;
+	margin: 0 5% 0 5%;
+}
+
+.Body h1
+{
+	border-top:	1px #ccc solid;
+	margin-top:	30pt;
+	padding-top: 20pt;
+}
+
+.Body h1, .Body h2
+{
+	letter-spacing:		-2px;
+}
+
+.Body p
+{
+	margin:		4pt 4pt 0pt 4pt;
+}
+
+.Menu
+{
+	xxxmargin: 0 20% 0 20%;
+}
+
+.Body
+{
+	clear:both;
+}
+
+
+.Menu li.level-1:not(#popmovie-link)
+{
+	display:block;
+	float:left;
+	margin:0px;
+	padding:4px;
+	min-height:200px;
+	width: 32%;
+}
+
+/* need class to get priority over above */
+.Menu li.level-1#additional-thanks-item
+{
+	clear:both;
+	min-height: auto;
+}
+
+code
+{
+	font: inherit;
+	font-family: monospace;
+	background-color: #f0f0f0;
+	color:#178fc5;
+	padding:2px;
+	margin:0px;
+	xxfont-size:larger;
+}
+
+a,
+a:visited,
+a:active
+{
+	color:#c30;
+	text-decoration: none;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+
+/* mobile changes */
+@media only screen and (max-device-width: 750px)
+{
+	body
+	{
+		margin-left:	0px;
+		margin-right:	0px;
+
+
+		/* scale header by width, not height */
+		margin-top:	22vw;
+	}
+
+	.Header,
+	.Menu #popmovie-link
+	{
+		height:		20vw;
+	}
+
+	.Header H1,
+	.Menu #popmovie-link
+	{
+		font-size:	14vw;
+	}
+
+	.Body
+	{
+		margin-left:	0px;
+		margin-right:	0px;
+	}
+
+	/* remove columns from menu */
+	.Menu li.level-1:not(#popmovie-link)
+	{
+		float:none;
+		width: 100%;
+		min-height:0;
+	}
+}
